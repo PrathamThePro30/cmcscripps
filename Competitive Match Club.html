@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!-- saved from url=(0069)file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#home -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Competitive Match Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Competitive Match Club_files/css2" rel="stylesheet">
+<style>
+:root{--bg:#F4F7FC;--sf:#fff;--ink:#0B1230;--mute:#4D5675;--grid:rgba(35,64,240,.11);--ac:#2340F0;--acx:#fff;--hl:#FFE14D;--hlx:#0B1230;--ok:#0E8A4F;--bad:#C2271F;--d:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;--b:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A1030;--sf:#121B48;--ink:#EEF2FF;--mute:#A4AED2;--grid:rgba(160,180,255,.09);--ac:#8EA2FF;--acx:#0A1030;--ok:#4FD38D;--bad:#FF8A80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0A1030;--sf:#121B48;--ink:#EEF2FF;--mute:#A4AED2;--grid:rgba(160,180,255,.09);--ac:#8EA2FF;--acx:#0A1030;--ok:#4FD38D;--bad:#FF8A80;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 var(--b);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+a{color:inherit}
+h1,h2,h3{font-family:var(--d);font-weight:800;letter-spacing:-.03em;line-height:1;margin:0}
+p{margin:0}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,40px)}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px;background-position:-1px -1px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:2px solid var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 1.15rem/1 var(--d);letter-spacing:-.02em}
+.brand svg{width:34px;height:34px;flex:none}
+.links{display:flex;gap:4px;align-items:center}
+.nl{text-decoration:none;font-weight:500;padding:8px 15px;border-radius:99px;border:2px solid transparent;transition:background .2s}
+.nl:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+.nl.on{background:var(--hl);color:var(--hlx);border-color:var(--ink)}
+.ico{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--sf);color:var(--ink);cursor:pointer;font-size:1.1rem;display:grid;place-items:center}
+.burger{display:none}
+@media (max-width:860px){.burger{display:grid}.links{position:absolute;left:0;right:0;top:68px;flex-direction:column;align-items:stretch;background:var(--bg);padding:12px clamp(18px,4vw,40px) 20px;border-bottom:2px solid var(--ink);display:none}.links.open{display:flex}.nl{padding:14px 16px;font-size:1.1rem}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border:2px solid var(--ink);border-radius:99px;background:var(--ac);color:var(--acx);font:700 1rem/1 var(--d);text-decoration:none;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.hl{background:var(--hl);color:var(--hlx)}
+.btn.gh{background:var(--sf);color:var(--ink)}
+.btn.off{opacity:.55;cursor:not-allowed;box-shadow:none;background:var(--sf);color:var(--mute);border-style:dashed}
+.row{display:flex;flex-wrap:wrap;gap:14px}
+
+/* pages */
+.page{display:none}
+.page.on{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.ph{padding:76px 0 56px;border-bottom:2px solid var(--ink)}
+.ph h1{font-size:clamp(2.6rem,7vw,5rem);max-width:15ch}
+.ph p{margin-top:22px;max-width:56ch;color:var(--mute);font-size:1.2rem}
+.sec{padding:84px 0}
+.sec h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:18ch}
+.lede{color:var(--mute);margin-top:16px;max-width:58ch}
+
+/* hero */
+.hero{padding:76px 0 96px;border-bottom:2px solid var(--ink);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(3rem,7.4vw,6rem);line-height:.92;letter-spacing:-.04em}
+.hero .sub{margin:28px 0 34px;font-size:1.2rem;color:var(--mute);max-width:46ch}
+.hero .go>*{animation:up .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--i)*110ms)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:48px}}
+
+/* answer sheet */
+.sheet{position:relative;background:var(--sf);border:2px solid var(--ink);border-radius:20px;padding:26px;box-shadow:9px 9px 0 var(--ink);transform:rotate(1.6deg)}
+.sheet::before{content:"";position:absolute;top:-14px;left:36px;width:120px;height:28px;background:var(--hl);transform:rotate(-4deg);border:2px solid var(--ink)}
+.sh-h{display:flex;justify-content:space-between;font-weight:600;color:var(--mute);font-size:.95rem;margin-bottom:14px}
+.q{font:700 1.45rem/1.25 var(--d);letter-spacing:-.015em;margin-bottom:18px;min-height:4.4em}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:11px 14px;border:2px solid var(--line,color-mix(in srgb,var(--ink) 25%,transparent));border-radius:14px;background:transparent;color:var(--ink);font:500 1.05rem var(--b);cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt i{flex:none;width:30px;height:30px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font:700 .85rem var(--d);font-style:normal;transition:background .15s,color .15s}
+.opt.pick i{background:var(--ink);color:var(--bg)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.opt.right i{background:var(--ok);border-color:var(--ok);color:var(--sf)}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,transparent)}
+.opt.wrong i{background:var(--bad);border-color:var(--bad);color:var(--sf)}
+.opt:disabled{cursor:default}
+.why-a{margin-top:16px;font-size:.98rem;color:var(--mute);min-height:3.2em}
+.sh-f{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.lnk{background:none;border:0;font:600 1rem var(--b);color:var(--ink);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px;cursor:pointer;padding:6px 0}
+
+/* ticker */
+.tick{background:var(--ink);color:var(--bg);overflow:hidden;border-bottom:2px solid var(--ink)}
+.tick div{display:flex;width:max-content;gap:56px;padding:15px 28px;font:700 1.25rem var(--d);animation:slide 42s linear infinite}
+.tick:hover div{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - 28px))}}
+
+/* programs blocks */
+.pgs{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.pb{padding:38px;border:2px solid var(--ink);display:flex;flex-direction:column;gap:18px;min-height:340px}
+.pb:nth-child(1){background:var(--ac);color:var(--acx);border-radius:36px 8px 36px 8px}
+.pb:nth-child(2){background:var(--hl);color:var(--hlx);border-radius:8px 36px 8px 36px}
+.pb h3{font-size:clamp(2rem,4vw,3rem)}
+.pb .lnk{color:inherit;margin-top:auto;align-self:flex-start}
+.pb .tag{align-self:flex-start;border:2px solid currentColor;border-radius:99px;padding:4px 14px;font-weight:600;font-size:.92rem}
+@media (max-width:860px){.pgs{grid-template-columns:1fr}.pb{min-height:0}}
+
+/* why rows */
+.why{margin-top:44px;border-bottom:2px solid var(--ink)}
+.wr{display:grid;grid-template-columns:minmax(160px,.55fr) 1fr;gap:32px;padding:34px 0;border-top:2px solid var(--ink);align-items:baseline}
+.wr h3{font-size:clamp(2rem,4.4vw,3.2rem)}
+.wr p{color:var(--mute);max-width:56ch;font-size:1.1rem}
+@media (max-width:700px){.wr{grid-template-columns:1fr;gap:10px}}
+
+/* cta */
+.cta{margin:0 auto 90px;background:var(--ac);color:var(--acx);border:2px solid var(--ink);border-radius:40px;padding:clamp(34px,6vw,72px);box-shadow:10px 10px 0 var(--ink);background-image:linear-gradient(rgba(255,255,255,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.14) 1px,transparent 1px);background-size:40px 40px}
+.cta h2{font-size:clamp(2.2rem,5.4vw,4.2rem);max-width:14ch}
+.cta p{margin:18px 0 30px;max-width:46ch;opacity:.92}
+
+/* detail blocks */
+.det{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:64px 0;border-top:2px solid var(--ink)}
+.det:first-of-type{border-top:0}
+.det h2{font-size:clamp(2.2rem,5vw,3.6rem)}
+dl{margin:0}
+.fact{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:14px 0;border-bottom:1.5px solid color-mix(in srgb,var(--ink) 20%,transparent)}
+.fact:first-child{border-top:1.5px solid color-mix(in srgb,var(--ink) 20%,transparent)}
+dt{font-weight:600}dd{margin:0;color:var(--mute)}
+@media (max-width:820px){.det{grid-template-columns:1fr;gap:24px}}
+
+/* timeline */
+.tl{list-style:none;margin:44px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:21px;top:10px;bottom:10px;border-left:2.5px dashed var(--ink)}
+.tl li{display:grid;grid-template-columns:44px 1fr;gap:22px;padding-bottom:34px}
+.tl b{width:44px;height:44px;border-radius:50%;background:var(--hl);color:var(--hlx);border:2px solid var(--ink);display:grid;place-items:center;font:800 1.1rem var(--d);position:relative}
+.tl h3{font-size:1.5rem;margin-bottom:6px;letter-spacing:-.02em}
+.tl p{color:var(--mute);max-width:56ch}
+
+/* team */
+.tm{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:8px}
+.pc{background:var(--sf);border:2px solid var(--ink);padding:32px;display:flex;flex-direction:column;gap:14px;box-shadow:7px 7px 0 var(--ink)}
+.pc:nth-child(1){border-radius:30px 8px 30px 8px}
+.pc:nth-child(2){border-radius:8px 30px 8px 30px}
+.pc:nth-child(3){border-radius:30px 30px 8px 8px}
+.mono{width:92px;height:92px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font:800 2rem var(--d);background:var(--ac);color:var(--acx);margin-bottom:8px}
+.pc:nth-child(2) .mono{background:var(--hl);color:var(--hlx)}
+.pc:nth-child(3) .mono{background:var(--ink);color:var(--bg)}
+.pc h3{font-size:1.9rem}
+.role{align-self:flex-start;background:var(--hl);color:var(--hlx);border:2px solid var(--ink);border-radius:99px;padding:3px 14px;font-weight:600;font-size:.92rem}
+.pc p{color:var(--mute)}
+@media (max-width:900px){.tm{grid-template-columns:1fr}}
+
+/* faq */
+details{border-top:2px solid var(--ink)}
+details:last-of-type{border-bottom:2px solid var(--ink)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 0;font:700 1.35rem/1.2 var(--d);letter-spacing:-.015em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";flex:none;width:36px;height:36px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:1.3rem;transition:transform .25s,background .25s}
+details[open] summary::after{transform:rotate(45deg);background:var(--hl);color:var(--hlx)}
+details p{padding:0 56px 26px 0;color:var(--mute);max-width:62ch}
+.two{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+@media (max-width:860px){.two{grid-template-columns:1fr;gap:32px}}
+
+/* forms */
+.fm{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:8px}
+.fc{background:var(--sf);border:2px solid var(--ink);border-radius:24px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:7px 7px 0 var(--ink)}
+.fc.main{background:var(--hl);color:var(--hlx);grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;border-radius:8px 40px 8px 40px}
+.fc.main p{color:inherit;opacity:.85}
+.fc h3{font-size:1.8rem}
+.fc p{color:var(--mute);flex:1}
+.fc .btn{align-self:flex-start;margin-top:8px}
+@media (max-width:760px){.fm{grid-template-columns:1fr}}
+.note{margin-top:36px;padding:20px 24px;border:2px dashed var(--ink);border-radius:16px;color:var(--mute)}
+
+/* footer */
+.ft{border-top:2px solid var(--ink);padding:48px 0 40px;background:var(--sf)}
+.ft .wrap{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between}
+.ft b{font:800 1.3rem var(--d);letter-spacing:-.02em}
+.ft p{color:var(--mute);margin-top:8px;max-width:34ch;font-size:.95rem}
+.ft nav{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-start}
+.ft nav a{font-weight:500}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="brand" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#home" aria-label="Competitive Match Club home">
+      <svg viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="15" fill="var(--hl)" stroke="var(--ink)" stroke-width="2.5"></circle><path d="M9 17h16M17 9v16" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"></path></svg>
+      Competitive Match Club
+    </a>
+    <nav class="links" id="links" aria-label="Main">
+      <a class="nl on" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#home" aria-current="page">Home</a>
+      <a class="nl" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#about">About</a>
+      <a class="nl" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#programs">Programs</a>
+      <a class="nl" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#team">Team</a>
+      <a class="nl" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join">Join</a>
+    </nav>
+    <div class="row" style="gap:10px;flex-wrap:nowrap">
+      <button class="ico" id="theme" aria-label="Switch light or dark theme">◐</button>
+      <button class="ico burger" id="burger" aria-label="Open menu" aria-expanded="false">≡</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="page on" id="p-home">
+  <div class="hero grid-bg">
+    <div class="wrap">
+      <div class="go">
+        <h1 style="--i:0">Solve it faster.<br>Teach it better.</h1>
+        <p class="sub" style="--i:1">Competitive Match Club is Scripps Ranch’s home for contest math. We train for Noetic Math and teach MOEMS to elementary students, every fall and spring.</p>
+        <div class="row" style="--i:2">
+          <a class="btn" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join">Join the club</a>
+          <a class="btn gh" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#programs">See our programs</a>
+        </div>
+      </div>
+      <div class="sheet go" aria-live="polite" style="--i:3">
+        <div class="sh-h"><span>Warm-up problem</span><span id="qn">1 of 3</span></div>
+        <div class="q" id="q">If a² + b² = 25 and ab = 12, what is (a + b)²?</div>
+        <div class="opts" id="opts"><button class="opt"><i>A</i><span>37</span></button><button class="opt"><i>B</i><span>49</span></button><button class="opt"><i>C</i><span>61</span></button><button class="opt"><i>D</i><span>73</span></button></div>
+        <div class="why-a" id="why"></div>
+        <div class="sh-f"><span style="color:var(--mute);font-size:.92rem">Fill in a bubble to answer</span><button class="lnk" id="nextq" hidden="">Next problem</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="tick" aria-hidden="true"><div id="tick"><span>a² + b² = c²</span><span>e^(iπ) + 1 = 0</span><span>Σ 1/n² = π²/6</span><span>φ = (1 + √5) / 2</span><span>n! / (k!(n−k)!)</span><span>1 + 3 + 5 + … = n²</span><span>∫ 2x dx = x²</span><span>sin²θ + cos²θ = 1</span><span>a² + b² = c²</span><span>e^(iπ) + 1 = 0</span><span>Σ 1/n² = π²/6</span><span>φ = (1 + √5) / 2</span><span>n! / (k!(n−k)!)</span><span>1 + 3 + 5 + … = n²</span><span>∫ 2x dx = x²</span><span>sin²θ + cos²θ = 1</span></div></div>
+
+  <div class="sec"><div class="wrap">
+    <h2>Two programs, one very math-loving room.</h2>
+    <div class="pgs">
+      <article class="pb">
+        <span class="tag">Teaching</span>
+        <h3>MOEMS for elementary students</h3>
+        <p>Our members coach younger students through the Mathematical Olympiads for Elementary and Middle Schools, turning tricky problems into confident wins.</p>
+        <a class="lnk" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#programs">How MOEMS works</a>
+      </article>
+      <article class="pb">
+        <span class="tag">Competing</span>
+        <h3>Noetic Math contests</h3>
+        <p>Practice together, sign up as a team, and take on Noetic Math in the fall and the spring. Beginners and veterans are both welcome.</p>
+        <a class="lnk" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#programs">How Noetic works</a>
+      </article>
+    </div>
+  </div></div>
+
+  <div class="sec" style="padding-top:0"><div class="wrap">
+    <h2>Why people stay.</h2>
+    <div class="why">
+      <div class="wr"><h3>Compete</h3><p>Real contests, real scoreboards, and a team that practices together so nobody walks in cold. Replace this with your club’s proudest results.</p></div>
+      <div class="wr"><h3>Teach</h3><p>Explaining an idea to a fourth grader is the fastest way to understand it yourself. Members build leadership and service hours while they do it.</p></div>
+      <div class="wr"><h3>Belong</h3><p>Friendly meetings, snacks, and people who think a clean proof is satisfying. You don’t need to be the best in your class. You just need to be curious.</p></div>
+    </div>
+  </div></div>
+
+  <div class="wrap"><div class="cta">
+    <h2>Your seat is open.</h2>
+    <p>Sign up for the club or a competition in a couple of minutes. We’ll handle the rest.</p>
+    <a class="btn hl" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join">Go to sign-ups</a>
+  </div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="p-about">
+  <div class="ph grid-bg"><div class="wrap">
+    <h1>Math is better as a team sport.</h1>
+    <p>Competitive Match Club brings Scripps Ranch High School students together to practice, compete, and share the joy of problem solving with the next generation.</p>
+  </div></div>
+  <div class="sec"><div class="wrap two">
+    <div>
+      <h2>What we do</h2>
+      <p class="lede">Filler copy: Replace this with the club’s story, founding year, and mission. We meet to work through contest problems, run MOEMS sessions for elementary students, and register teams for Noetic Math each season.</p>
+    </div>
+    <div>
+      <details open=""><summary>Do I need to be a math genius?</summary><p>No. If you enjoy puzzles and want to get better at them, you belong here. We practice at every level.</p></details>
+      <details><summary>How much time does it take?</summary><p>Meeting schedule coming soon. Expect a regular club meeting plus optional contest days in fall and spring.</p></details>
+      <details><summary>What is MOEMS?</summary><p>The Mathematical Olympiads for Elementary and Middle Schools is a series of contests built around creative problem solving. Our members help elementary students prepare for it.</p></details>
+      <details><summary>What is Noetic Math?</summary><p>Noetic Math is a math contest series that our members enter as a team during fall and spring.</p></details>
+      <details><summary>How do I sign up?</summary><p>Head to the Join page and open the form for the club or the competition you want.</p></details>
+    </div>
+  </div></div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="page" id="p-programs">
+  <div class="ph grid-bg"><div class="wrap">
+    <h1>What we run this year.</h1>
+    <p>One program where we teach and one where we compete. Pick one or do both.</p>
+  </div></div>
+  <div class="wrap">
+    <div class="det">
+      <div><h2>MOEMS</h2><p class="lede">Club members coach elementary students through Mathematical Olympiads for Elementary and Middle Schools. Filler: add a short description of a typical session here.</p></div>
+      <dl>
+        <div class="fact"><dt>Who</dt><dd>Elementary students, taught by club members</dd></div>
+        <div class="fact"><dt>Format</dt><dd>Weekly practice sessions with contest-style problems</dd></div>
+        <div class="fact"><dt>When</dt><dd>Fall and spring, schedule coming soon</dd></div>
+        <div class="fact"><dt>Where</dt><dd>To be announced</dd></div>
+      </dl>
+    </div>
+    <div class="det">
+      <div><h2>Noetic Math</h2><p class="lede">Our competing side. We prepare together, then enter as a team. Filler: add what students can expect on contest day.</p></div>
+      <dl>
+        <div class="fact"><dt>Who</dt><dd>Scripps Ranch High School students</dd></div>
+        <div class="fact"><dt>Format</dt><dd>Practice meetings and contest rounds</dd></div>
+        <div class="fact"><dt>When</dt><dd>Fall and spring, dates coming soon</dd></div>
+        <div class="fact"><dt>Sign up</dt><dd><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join">Competition forms on the Join page</a></dd></div>
+      </dl>
+    </div>
+    <div class="det" style="display:block">
+      <h2>The school year</h2>
+      <p class="lede">Dates to be announced. This is the rhythm we follow.</p>
+      <ol class="tl">
+        <li><b>1</b><div><h3>Fall kickoff</h3><p>Meet the officers, join the club, and start practicing.</p></div></li>
+        <li><b>2</b><div><h3>Fall contests</h3><p>Noetic Math rounds and MOEMS tutoring sessions.</p></div></li>
+        <li><b>3</b><div><h3>Spring restart</h3><p>New problems, new members, and a fresh round of sign-ups.</p></div></li>
+        <li><b>4</b><div><h3>Spring contests</h3><p>Final Noetic Math rounds and a wrap-up for the year.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="page" id="p-team">
+  <div class="ph grid-bg"><div class="wrap">
+    <h1>Meet the officers.</h1>
+    <p>Students who run the meetings, write the problems, and make sure there are snacks.</p>
+  </div></div>
+  <div class="sec"><div class="wrap">
+    <div class="tm">
+      <article class="pc"><div class="mono">RJ</div><h3>Ria Johari</h3><span class="role">Co-president</span><p>Bio will be added later</p></article>
+      <article class="pc"><div class="mono">TS</div><h3>Tashvi Sistla</h3><span class="role">Co-president</span><p>Bio will be added later</p></article>
+      <article class="pc"><div class="mono">AM</div><h3>Armaan Mittal</h3><span class="role">Secretary</span><p>Bio will be added later</p></article>
+    </div>
+  </div></div>
+</section>
+
+<!-- JOIN -->
+<section class="page" id="p-join">
+  <div class="ph grid-bg"><div class="wrap">
+    <h1>Sign up here.</h1>
+    <p>Choose the form that matches what you want to do. Each one opens in a new tab.</p>
+  </div></div>
+  <div class="sec"><div class="wrap">
+    <div class="fm">
+      <div class="fc main"><div><h3>Join the club</h3><p>Start here. One short form makes you a member and puts you on our announcement list.</p></div><a class="btn off" data-form="club" aria-disabled="true">Form link coming soon</a></div>
+      <div class="fc"><h3>MOEMS tutoring</h3><p>Sign up to teach, or register an elementary student for MOEMS sessions.</p><a class="btn hl off" data-form="moems" aria-disabled="true">Form link coming soon</a></div>
+      <div class="fc"><h3>Noetic Math contests</h3><p>Register for the fall or spring Noetic Math contest as part of the club team.</p><a class="btn hl off" data-form="noetic" aria-disabled="true">Form link coming soon</a></div>
+    </div>
+    <div class="note">Questions before you sign up? Ask any officer at school, or use the <a data-form="questions" href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join" style="font-weight:600">contact form</a>.</div>
+  </div></div>
+</section>
+</main>
+
+<footer class="ft"><div class="wrap">
+  <div><b>Competitive Match Club</b><p>Scripps Ranch High School, San Diego, California.</p></div>
+  <nav aria-label="Footer"><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#home">Home</a><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#about">About</a><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#programs">Programs</a><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#team">Team</a><a href="file:///C:/Users/prath/Downloads/code-20261122-192206/index.html#join">Join</a></nav>
+</div></footer>
+
+<script>
+/* ===== EDIT HERE: paste your form links between the quotes ===== */
+var FORMS={club:"",moems:"",noetic:"",questions:""};
+
+var pages=[].slice.call(document.querySelectorAll(".page")),navs=[].slice.call(document.querySelectorAll(".nl")),links=document.getElementById("links"),burger=document.getElementById("burger");
+var titles={home:"Home",about:"About",programs:"Programs",team:"Team",join:"Join"};
+function route(){
+  var h=(location.hash||"#home").slice(1);
+  if(!document.getElementById("p-"+h))h="home";
+  pages.forEach(function(p){p.classList.toggle("on",p.id==="p-"+h)});
+  navs.forEach(function(a){var on=a.getAttribute("href")==="#"+h;a.classList.toggle("on",on);on?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current")});
+  document.title=(h==="home"?"":titles[h]+" | ")+"Competitive Match Club";
+  links.classList.remove("open");burger.setAttribute("aria-expanded","false");
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);
+burger.addEventListener("click",function(){var o=links.classList.toggle("open");burger.setAttribute("aria-expanded",o)});
+
+/* forms */
+[].forEach.call(document.querySelectorAll("[data-form]"),function(el){
+  var u=FORMS[el.getAttribute("data-form")];
+  if(u){el.href=u;el.target="_blank";el.rel="noopener"}
+  else if(el.classList.contains("btn")){el.removeAttribute("href");el.classList.add("off");el.setAttribute("aria-disabled","true");el.textContent="Form link coming soon"}
+});
+
+/* theme */
+var root=document.documentElement;
+try{var s=localStorage.getItem("cmc-theme");if(s)root.setAttribute("data-theme",s)}catch(e){}
+document.getElementById("theme").addEventListener("click",function(){
+  var dark=root.getAttribute("data-theme")==="dark"||(!root.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);
+  var n=dark?"light":"dark";root.setAttribute("data-theme",n);
+  try{localStorage.setItem("cmc-theme",n)}catch(e){}
+});
+
+/* ticker */
+var ex=["a² + b² = c²","e^(iπ) + 1 = 0","Σ 1/n² = π²/6","φ = (1 + √5) / 2","n! / (k!(n−k)!)","1 + 3 + 5 + … = n²","∫ 2x dx = x²","sin²θ + cos²θ = 1"];
+document.getElementById("tick").innerHTML=ex.concat(ex).map(function(t){return"<span>"+t+"</span>"}).join("");
+
+/* warm-up problems */
+var P=[
+ {q:"If a² + b² = 25 and ab = 12, what is (a + b)²?",o:["37","49","61","73"],a:1,e:"(a + b)² = a² + b² + 2ab = 25 + 24 = 49."},
+ {q:"How many diagonals does a regular hexagon have?",o:["6","12","9","15"],a:2,e:"n(n − 3) / 2 with n = 6 gives 6 × 3 / 2 = 9."},
+ {q:"What is the sum of the first 10 positive odd numbers?",o:["100","110","90","121"],a:0,e:"The first n odd numbers always add up to n², so the answer is 10² = 100."}
+],i=0,L="ABCD";
+var qEl=document.getElementById("q"),oEl=document.getElementById("opts"),wEl=document.getElementById("why"),nx=document.getElementById("nextq");
+function show(){
+  var p=P[i];qEl.textContent=p.q;wEl.textContent="";nx.hidden=true;
+  document.getElementById("qn").textContent=(i+1)+" of "+P.length;
+  oEl.innerHTML="";
+  p.o.forEach(function(t,k){
+    var b=document.createElement("button");b.className="opt";b.innerHTML="<i>"+L[k]+"</i><span>"+t+"</span>";
+    b.addEventListener("click",function(){
+      var kids=oEl.children;
+      [].forEach.call(kids,function(c,j){c.disabled=true;if(j===p.a)c.classList.add("right")});
+      if(k===p.a){wEl.textContent="Correct. "+p.e}else{b.classList.add("wrong");wEl.textContent="Not quite. "+p.e}
+      nx.hidden=false;nx.textContent=i===P.length-1?"Start over":"Next problem";
+    });
+    oEl.appendChild(b);
+  });
+}
+nx.addEventListener("click",function(){i=(i+1)%P.length;show()});
+show();route();
+</script>
+
+
+</body></html>
